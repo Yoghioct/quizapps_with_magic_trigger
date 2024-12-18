@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
@@ -56,5 +57,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/amazing-race', [ParticipantController::class, 'amazingRace'])->name('amazingrace');
+Route::post('/amazing-race/register', [ParticipantController::class, 'amazingRaceRegister'])->name('amazingrace.register');
+Route::get('/amazing-race/detail/{id}', [ParticipantController::class, 'amazingRaceDetail'])->name('amazingrace.detail');
+
+Route::post('/gala-dinner', [ParticipantController::class, 'galaDinner'])->name('galadinner');
+Route::get('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRegister'])->name('galadinner.register');
+Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerParticipant'])->name('galadinner.detail');
 
 require __DIR__.'/auth.php';
