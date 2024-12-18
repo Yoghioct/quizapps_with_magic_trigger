@@ -35,9 +35,9 @@
 
                                         <!-- Team Details -->
                                         <div>
-                                            <h2 class="text-xl font-semibold text-black dark:text-white"
+                                            <h2 class="text-xl font-semibold text-"
                                                 x-text="team.name"></h2>
-                                            <h5 class="text-l font-regular text-black dark:text-white">Score: <span
+                                            <h5 class="text-l font-regular text-">Score: <span
                                                     x-text="team.total_score"></span></h5>
                                         </div>
 

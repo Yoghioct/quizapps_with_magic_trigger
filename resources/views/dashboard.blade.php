@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Total Scores Recorded") }}
                 </div>
-                <div class="p-4 font-black text-4xl" style="float: right">
+                <div class="p-4 font-black text-4xl dark:text-white" style="float: right">
                     <h1>{{ $totalScore }}</h1>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Team Registered") }}
                 </div>
-                <div class="p-4 font-black text-4xl" style="float: right">
+                <div class="p-4 font-black text-4xl dark:text-white" style="float: right">
                     <h1>{{ $teams }}</h1>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Committees Registered") }}
                 </div>
-                <div class="p-4 font-black text-4xl" style="float: right">
+                <div class="p-4 font-black text-4xl dark:text-white" style="float: right">
                     <h1>{{ $users }}</h1>
                 </div>
             </div>

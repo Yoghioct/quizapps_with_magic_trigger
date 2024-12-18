@@ -75,8 +75,8 @@
 
                                     <!-- Team Details -->
                                     <div>
-                                        <h2 class="text-xl font-semibold text-black dark:text-white" x-text="team.name"></h2>
-                                        <h5 class="text-l font-regular text-black dark:text-white">Score: <span x-text="team.total_score"></span></h5>
+                                        <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
+                                        <h5 class="text-l font-regular text-black dark:text-*">Score: <span x-text="team.total_score"></span></h5>
                                     </div>
 
                                     <div class="flex-1"></div>

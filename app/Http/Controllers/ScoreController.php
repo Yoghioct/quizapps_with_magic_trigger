@@ -33,6 +33,15 @@ class ScoreController extends Controller
             'score' => 'required|integer',
         ]);
 
+
+        $existingScore = Score::where('team_id', $request->team_id)
+        ->where('game_id', $request->game_id)
+        ->first();
+
+        if ($existingScore) {
+            return redirect()->back()->with('error', 'Score for this team and game has already been input.');
+        }
+
         Score::create([
             'team_id' => $request->team_id,
             'game_id' => $request->game_id,
@@ -46,7 +55,7 @@ class ScoreController extends Controller
     }
 
     public function data(){
-        $scores = Score::with(['team', 'game', 'user'])->get();
+        $scores = Score::with(['team', 'game', 'user'])->orderBy('id', 'desc')->get();
 
         $data = [
             'scores' => $scores,

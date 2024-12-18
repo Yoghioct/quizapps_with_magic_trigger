@@ -37,6 +37,11 @@
                                             x-show="sortColumn === 'updated_at' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'updated_at' && sortDirection === 'desc'">↓</span>
                                     </th>
+                                    <th class="py-3 px-6 text-left cursor-pointer" @click="sort('created_at')">
+                                        Timestamp <span
+                                            x-show="sortColumn === 'updated_at' && sortDirection === 'asc'">↑</span>
+                                        <span x-show="sortColumn === 'updated_at' && sortDirection === 'desc'">↓</span>
+                                    </th>
                                     <th class="py-3 px-6 text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -51,6 +56,9 @@
                                         <td class="py-3 px-6" x-text="score.user.name ?? 'Unknown'"></td>
                                         <td class="py-3 px-6"
                                             x-text="formatDate(score.updated_at ? score.updated_at : score.created_at)">
+                                        </td>
+                                        <td class="py-3 px-6"
+                                            x-text="formatDate(score.created_at)">
                                         </td>
                                         <td class="py-3 px-6 text-center">
                                             <div class="flex flex-col gap-2 sm:flex-row sm:justify-center">

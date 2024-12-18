@@ -32,7 +32,7 @@
                         <!-- Score -->
                         <div class="mb-4">
                             <label for="score" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Score</label>
-                            <input type="number" id="score" name="score"
+                            <input type="number" id="score" name="score" min="1" max="100"
                                    class="mt-1 block w-full rounded-md border-gray-300 dark:bg-gray-700 dark:border-gray-600"
                                    value="{{ $score->score }}" required />
                         </div>

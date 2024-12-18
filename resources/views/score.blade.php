@@ -15,20 +15,15 @@
                             {{ session('success') }}
                         </div>
                     @endif
+                    @if (session('error'))
+                        <div class="mb-4 text-red-600 dark:bg-red-800 border border-red-500 rounded-md p-4" style="background-color:rgb(254 226 226)">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
                     <!-- Form for Inputting Score -->
                     <form action="{{ route('score.store') }}" method="POST">
                         @csrf
-                        <!-- Team ID -->
-                        <div class="mb-4">
-                            <label for="team_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Team</label>
-                            <select id="team_id" name="team_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600">
-                                <option value="">Select Team</option>
-                                <!-- Replace with dynamic data -->
-                                <@foreach($teams as $team)
-                                    <option value="{{ $team->id }}">{{ $team->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
 
                         <!-- Game ID -->
                         <div class="mb-4">
@@ -42,10 +37,22 @@
                             </select>
                         </div>
 
+                        <!-- Team ID -->
+                        <div class="mb-4">
+                            <label for="team_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Team</label>
+                            <select id="team_id" name="team_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                                <option value="">Select Team</option>
+                                <!-- Replace with dynamic data -->
+                                <@foreach($teams as $team)
+                                    <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <!-- Score -->
                         <div class="mb-4">
                             <label for="score" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Score</label>
-                            <input type="number" id="score" name="score" required
+                            <input type="number" id="score" name="score" min="1" max="100" required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600" />
                         </div>
 
