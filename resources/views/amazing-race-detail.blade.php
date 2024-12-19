@@ -48,6 +48,12 @@
                                             </video>
                                         </div>
 
+                                        <div class="video-container">
+                                            <video width="100%" height="100%" autoplay loop muted playsinline   >
+                                                <source src="{{ asset('assets/video/amazingrace.mp4')  }}" type="video/mp4">
+                                            </video>
+                                        </div>
+
                                         <!-- Opening Sentence -->
                                         <div class="mb-6 mt-6">
                                             <p class="text-lg font-medium">
