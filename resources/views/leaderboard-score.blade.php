@@ -1,3 +1,5 @@
+@section('title', 'Leaaderboard - 50th Anniversary PT Otsuka Indonesia')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -16,7 +18,7 @@
                                 <!-- Modal Container -->
                                 <div x-show="modalVisible" class="fixed inset-0 flex items-center justify-center"">
                                     <div class="background-modal"></div>
-                                    <div class="bg-white dark:bg-black p-6 rounded-lg shadow-lg z-10" style="width: 87% !important;  z-index: 1000;">
+                                    <div class="bg-white dark:bg-black p-6 rounded-lg shadow-lg z-10" style="max-width: 620px; width: 87% !important;  z-index: 1000;">
                                         <h2 class="text-xl font-semibold text-black dark:text-white" x-text="modalTeam.name"></h2>
                                         <div class="flex justify-between items-center border-b pb-4 mb-4 mt-4"></div>
 

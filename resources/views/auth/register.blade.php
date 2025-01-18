@@ -1,3 +1,5 @@
+@section('title', 'Register - 50th Anniversary PT Otsuka Indonesia')
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf

@@ -60,7 +60,7 @@
                             <!-- Modal Container -->
                             <div x-show="modalVisible" class="fixed inset-0 flex items-center justify-center"">
                                 <div class="background-modal"></div>
-                                <div class="bg-white dark:bg-black p-6 rounded-lg shadow-lg z-10" style="width: 87% !important;  z-index: 1000;">
+                                <div class="bg-white dark:bg-black p-6 rounded-lg shadow-lg z-10" style="max-width: 620px; width: 87% !important;  z-index: 1000;">
                                     <h2 class="text-xl font-semibold text-black dark:text-white" x-text="modalTeam.name"></h2>
                                     <div class="flex justify-between items-center border-b pb-4 mb-4 mt-4"></div>
 
@@ -149,7 +149,7 @@
         </div>
         <footer
             class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
-            <a href="https://instagram.com/yoghioctopus" target="_blank">@yoghioctopus</a>
+            <a href="https://instagram.com/yoghioctopus" target="_blank">by @yoghioctopus</a>
         </footer>
     </div>
 

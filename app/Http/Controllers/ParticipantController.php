@@ -76,14 +76,50 @@ class ParticipantController extends Controller
     }
 
     public function galaDinner(){
-        // $participant = Participant::find(1);
-
-        // dd($participant);
+        return view('gala-dinner');
     }
 
-    public function galaDinnerParticipant($id){
-        // $participant = Participant::find(1);
+    public function galaDinnerRegister(Request $request){
+        $code = $request->code;
+        $full_name = strtolower($request->full_name);
 
-        // dd($participant);
+        $participantByCode = Participant::where('code', $code)->first();
+
+        $participantByName = Participant::whereRaw('LOWER(full_name) = ?', [$full_name])->first();
+
+        // Case 1: NIP not found
+        if (!$participantByCode && !$participantByName) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan!');
+        }
+
+        // Case 2: Name exists but NIP is wrong
+        if ($participantByName && $participantByName->code != $code) {
+            return redirect()->back()->with('error', 'NIP salah!');
+        }
+
+        // Case 3: NIP exists but name is wrong
+        if ($participantByCode && strtolower($participantByCode->full_name) != $full_name) {
+            return redirect()->back()->with('error', 'Nama salah!');
+        }
+
+        // Encode the ID
+        $encodeId = Crypt::encrypt($participantByName->id);
+        // dd($decodeId);
+
+        // Redirect to the detail page
+        return redirect()->route('galadinner.detail', ['id' => $encodeId])
+            ->with('success', 'Identification Success.');
+    }
+
+    public function galaDinnerDetail($id){
+        $decodeId = Crypt::decrypt($id);
+
+        $participant = Participant::with(['team', 'dinnerTable'])->find($decodeId)->toArray();
+
+        $data = [
+            'participant' => $participant,
+        ];
+
+        return view('gala-dinner-detail', $data);
     }
 }

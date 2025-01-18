@@ -8,11 +8,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('leaderboard');
-// });
+Route::get('/', function () {
+    return view('homepage');
+});
 
-Route::get('/', [LeaderboardController::class, 'index'])->name('home');
+// Route::get('/', [LeaderboardController::class, 'index'])->name('home');
+
+// Route::get('/', [LeaderboardController::class, 'index'])->name('home');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -62,10 +64,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/amazing-race', [ParticipantController::class, 'amazingRace'])->name('amazingrace');
 Route::post('/amazing-race/register', [ParticipantController::class, 'amazingRaceRegister'])->name('amazingrace.register');
 Route::get('/amazing-race/detail/{id}', [ParticipantController::class, 'amazingRaceDetail'])->name('amazingrace.detail');
+Route::get('/amazing-race/leaderboard', [LeaderboardController::class, 'index'])->name('amazingrace.leaderboard');
 
-Route::post('/gala-dinner', [ParticipantController::class, 'galaDinner'])->name('galadinner');
-Route::get('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRegister'])->name('galadinner.register');
-Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerParticipant'])->name('galadinner.detail');
+
+Route::get('/gala-dinner', [ParticipantController::class, 'galaDinner'])->name('galadinner');
+Route::post('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRegister'])->name('galadinner.register');
+Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerDetail'])->name('galadinner.detail');
 
 require __DIR__.'/auth.php';
 

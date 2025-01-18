@@ -20,7 +20,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('score')" :active="request()->routeIs('score')">
-                        {{ __('Score') }}
+                        {{ __('Input Score') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">

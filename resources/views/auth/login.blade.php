@@ -1,3 +1,5 @@
+@section('title', 'Login - 50th Anniversary PT Otsuka Indonesia')
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

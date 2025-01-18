@@ -73,7 +73,7 @@
 
                                             <!-- Form for Inputting Score -->
                                             {{-- <form action="{{ route('score.store') }}" method="POST"> --}}
-                                            <form action="{{ route('amazingrace.register') }}" method="POST">
+                                            <form action="{{ route('galadinner.register') }}" method="POST">
                                                 @csrf
 
                                                 <!-- NIP -->
