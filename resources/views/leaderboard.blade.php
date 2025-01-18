@@ -21,14 +21,14 @@
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
         <div
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                    <div class="flex lg:justify-center lg:col-start-2">
-                        <img style="width: 300px"
+            <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
+                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
+                    <div class="flex lg:justify-center">
+                        <img style="width: 200px"
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Otsuka_Holdings_logo.svg/500px-Otsuka_Holdings_logo.svg.png">
                     </div>
                     @if (Route::has('login'))
-                        <nav class="-mx-3 flex flex-1 justify-end">
+                        <nav class="flex space-x-4">
                             @auth
                                 <a href="{{ url('/dashboard') }}"
                                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
@@ -39,7 +39,6 @@
                                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                     Log in
                                 </a>
-
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
@@ -49,25 +48,30 @@
                             @endauth
                         </nav>
                     @endif
-                </header>
+                </div>
+            </header>
+
+            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto" style="margin-top: 100px;">
 
                 <main class="mt-6">
                     <div class="grid" style="margin-bottom: 100px">
 
                         <div x-data="leaderboard()" x-init="fetchData()" class="grid">
                             <div x-show="loading" class="text-center text-gray-500">
-                                <svg class="animate-spin h-5 w-5 text-gray-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <svg class="animate-spin h-5 w-5 text-gray-500 mx-auto"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10"
+                                        stroke="currentColor" stroke-width="4"></circle>
                                     <path class="opacity-75" fill="currentColor"
-                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4zm2 5.291A7.963 7.963 0 014 12h4a4.001 4.001 0 002 3.291V20a7.962 7.962 0 01-4-2.709z"></path>
+                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4zm2 5.291A7.963 7.963 0 014 12h4a4.001 4.001 0 002 3.291V20a7.962 7.962 0 01-4-2.709z">
+                                    </path>
                                 </svg>
                                 <p>Loading...</p>
                             </div>
 
                             <template x-for="(team, index) in teams" :key="team.id">
                                 <div class="col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out"
-                                     :class="team.movement" style="margin-top: 15px">
+                                    :class="team.movement" style="margin-top: 15px">
                                     <!-- Rank Badge -->
                                     <div :class="`badge-ranking-${index + 1 > 3 ? 'default' : index + 1}`">
                                         Rank <span x-text="index + 1" style="margin-left: 5px"></span>
@@ -75,8 +79,10 @@
 
                                     <!-- Team Details -->
                                     <div>
-                                        <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
-                                        <h5 class="text-l font-regular text-black dark:text-*">Score: <span x-text="team.total_score"></span></h5>
+                                        <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name">
+                                        </h2>
+                                        <h5 class="text-l font-regular text-black dark:text-*">Score: <span
+                                                x-text="team.total_score"></span></h5>
                                     </div>
 
                                     <div class="flex-1"></div>
@@ -98,12 +104,13 @@
                 </main>
 
                 {{-- <footer class="py-16 text-center text-sm text-black dark:text-white/70 fixed bottom-0 w-full bg-white dark:bg-gray-900"> --}}
-                    {{-- @yoghioctopus --}}
+                {{-- @yoghioctopus --}}
                 {{-- </footer> --}}
 
             </div>
         </div>
-        <footer class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
+        <footer
+            class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
             <a href="https://instagram.com/yoghioctopus" target="_blank">@yoghioctopus</a>
         </footer>
     </div>
@@ -146,18 +153,21 @@
     <style>
         .animate-move-up {
             animation: moveUp 0.5s ease-in-out;
-            background-color: #d4edda; /* Light green for movement up */
+            background-color: #d4edda;
+            /* Light green for movement up */
         }
 
         .animate-move-down {
             animation: moveDown 0.5s ease-in-out;
-            background-color: #f8d7da; /* Light red for movement down */
+            background-color: #f8d7da;
+            /* Light red for movement down */
         }
 
         @keyframes moveUp {
             from {
                 transform: translateY(20px);
             }
+
             to {
                 transform: translateY(0);
             }
@@ -167,6 +177,7 @@
             from {
                 transform: translateY(-20px);
             }
+
             to {
                 transform: translateY(0);
             }
@@ -176,6 +187,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -184,8 +196,6 @@
         .animate-spin {
             animation: spin 1s linear infinite;
         }
-
-
     </style>
 </body>
 
