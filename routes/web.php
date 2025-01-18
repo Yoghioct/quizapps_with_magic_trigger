@@ -29,7 +29,8 @@ Route::get('/', [LeaderboardController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/score', [ScoreController::class, 'index'])->middleware(['auth', 'verified'])->name('score');
 Route::get('/data-score', [ScoreController::class, 'data'])->middleware(['auth', 'verified'])->name('data-score');
-Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->middleware(['auth', 'verified'])->name('leaderboard');
+Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
+Route::get('/leaderboard/{id}', [LeaderboardController::class, 'detail'])->name('detail-leaderboard');
 
 // Route::get('/data-score', [ScoreController::class, 'data'])
 //     ->middleware(['auth', 'verified'])
@@ -67,3 +68,7 @@ Route::get('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRe
 Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerParticipant'])->name('galadinner.detail');
 
 require __DIR__.'/auth.php';
+
+
+
+
