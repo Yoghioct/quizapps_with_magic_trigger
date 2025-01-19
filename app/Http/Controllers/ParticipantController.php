@@ -31,36 +31,57 @@ class ParticipantController extends Controller
         // ]);
     }
 
+    // public function amazingRaceRegister(Request $request){
+    //     $code = $request->code;
+    //     $full_name = strtolower($request->full_name);
+
+    //     $participantByCode = Participant::where('code', $code)->first();
+
+    //     $participantByName = Participant::whereRaw('LOWER(full_name) = ?', [$full_name])->first();
+
+    //     // Case 1: NIP not found
+    //     if (!$participantByCode && !$participantByName) {
+    //         return redirect()->back()->with('error', 'Data tidak ditemukan!');
+    //     }
+
+    //     // Case 2: Name exists but NIP is wrong
+    //     if ($participantByName && $participantByName->code != $code) {
+    //         return redirect()->back()->with('error', 'NIP salah!');
+    //     }
+
+    //     // Case 3: NIP exists but name is wrong
+    //     if ($participantByCode && strtolower($participantByCode->full_name) != $full_name) {
+    //         return redirect()->back()->with('error', 'Nama salah!');
+    //     }
+
+    //     // Encode the ID
+    //     $encodeId = Crypt::encrypt($participantByName->id);
+    //     // dd($decodeId);
+
+    //     // Redirect to the detail page
+    //     return redirect()->route('amazingrace.detail', ['id' => $encodeId])
+    //         ->with('success', 'Identification Success.');
+    // }
+
     public function amazingRaceRegister(Request $request){
         $code = $request->code;
-        $full_name = strtolower($request->full_name);
+        $inputFullName = strtolower($request->full_name);
 
         $participantByCode = Participant::where('code', $code)->first();
 
-        $participantByName = Participant::whereRaw('LOWER(full_name) = ?', [$full_name])->first();
+        if ($participantByCode) {
+            similar_text($inputFullName, strtolower($participantByCode->full_name), $similarityPercent);
 
-        // Case 1: NIP not found
-        if (!$participantByCode && !$participantByName) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan!');
+            if ($similarityPercent > 80) {
+                $encodeId = Crypt::encrypt($participantByCode->id);
+                return redirect()->route('amazingrace.detail', ['id' => $encodeId])
+                    ->with('success', 'Identification Success.');
+            } else {
+                return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
         }
-
-        // Case 2: Name exists but NIP is wrong
-        if ($participantByName && $participantByName->code != $code) {
-            return redirect()->back()->with('error', 'NIP salah!');
-        }
-
-        // Case 3: NIP exists but name is wrong
-        if ($participantByCode && strtolower($participantByCode->full_name) != $full_name) {
-            return redirect()->back()->with('error', 'Nama salah!');
-        }
-
-        // Encode the ID
-        $encodeId = Crypt::encrypt($participantByName->id);
-        // dd($decodeId);
-
-        // Redirect to the detail page
-        return redirect()->route('amazingrace.detail', ['id' => $encodeId])
-            ->with('success', 'Identification Success.');
     }
 
     public function amazingRaceDetail($id){
@@ -86,35 +107,25 @@ class ParticipantController extends Controller
     }
 
     public function galaDinnerRegister(Request $request){
+
         $code = $request->code;
-        $full_name = strtolower($request->full_name);
+        $inputFullName = strtolower($request->full_name);
 
         $participantByCode = Participant::where('code', $code)->first();
 
-        $participantByName = Participant::whereRaw('LOWER(full_name) = ?', [$full_name])->first();
+        if ($participantByCode) {
+            similar_text($inputFullName, strtolower($participantByCode->full_name), $similarityPercent);
 
-        // Case 1: NIP not found
-        if (!$participantByCode && !$participantByName) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan!');
+            if ($similarityPercent > 80) {
+                $encodeId = Crypt::encrypt($participantByCode->id);
+                return redirect()->route('galadinner.detail', ['id' => $encodeId])
+                    ->with('success', 'Identification Success.');
+            } else {
+                return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
         }
-
-        // Case 2: Name exists but NIP is wrong
-        if ($participantByName && $participantByName->code != $code) {
-            return redirect()->back()->with('error', 'NIP salah!');
-        }
-
-        // Case 3: NIP exists but name is wrong
-        if ($participantByCode && strtolower($participantByCode->full_name) != $full_name) {
-            return redirect()->back()->with('error', 'Nama salah!');
-        }
-
-        // Encode the ID
-        $encodeId = Crypt::encrypt($participantByName->id);
-        // dd($decodeId);
-
-        // Redirect to the detail page
-        return redirect()->route('galadinner.detail', ['id' => $encodeId])
-            ->with('success', 'Identification Success.');
     }
 
     public function galaDinnerDetail($id){
@@ -135,34 +146,23 @@ class ParticipantController extends Controller
 
     public function openMuseumRegister(Request $request){
         $code = $request->code;
-        $full_name = strtolower($request->full_name);
+        $inputFullName = strtolower($request->full_name);
 
         $participantByCode = Participant::where('code', $code)->first();
 
-        $participantByName = Participant::whereRaw('LOWER(full_name) = ?', [$full_name])->first();
+        if ($participantByCode) {
+            similar_text($inputFullName, strtolower($participantByCode->full_name), $similarityPercent);
 
-        // Case 1: NIP not found
-        if (!$participantByCode && !$participantByName) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan!');
+            if ($similarityPercent > 80) {
+                $encodeId = Crypt::encrypt($participantByCode->id);
+                return redirect()->route('openmuseum.detail', ['id' => $encodeId])
+                    ->with('success', 'Identification Success.');
+            } else {
+                return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
         }
-
-        // Case 2: Name exists but NIP is wrong
-        if ($participantByName && $participantByName->code != $code) {
-            return redirect()->back()->with('error', 'NIP salah!');
-        }
-
-        // Case 3: NIP exists but name is wrong
-        if ($participantByCode && strtolower($participantByCode->full_name) != $full_name) {
-            return redirect()->back()->with('error', 'Nama salah!');
-        }
-
-        // Encode the ID
-        $encodeId = Crypt::encrypt($participantByName->id);
-        // dd($decodeId);
-
-        // Redirect to the detail page
-        return redirect()->route('openmuseum.detail', ['id' => $encodeId])
-            ->with('success', 'Identification Success.');
     }
 
     public function openMuseumDetail($id){
