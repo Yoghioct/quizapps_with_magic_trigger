@@ -24,8 +24,8 @@
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
                     <div class="flex lg:justify-center">
-                        <img style="width: 200px"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Otsuka_Holdings_logo.svg/500px-Otsuka_Holdings_logo.svg.png">
+                        <img style="width: 100px"
+                            src="https://sfe.otsuka.co.id/assets/images/50th.png">
                     </div>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">
@@ -39,12 +39,12 @@
                                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                     Log in
                                 </a>
-                                @if (Route::has('register'))
+                                {{-- @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                         Register
                                     </a>
-                                @endif
+                                @endif --}}
                             @endauth
                         </nav>
                     @endif

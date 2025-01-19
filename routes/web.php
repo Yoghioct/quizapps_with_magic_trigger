@@ -12,6 +12,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+
 // Route::get('/', [LeaderboardController::class, 'index'])->name('home');
 
 // Route::get('/', [LeaderboardController::class, 'index'])->name('home');

@@ -7,8 +7,8 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
-                        <img style="width: 100px"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Otsuka_Holdings_logo.svg/500px-Otsuka_Holdings_logo.svg.png">
+                        <img style="width: 50px"
+                                src="https://sfe.otsuka.co.id/assets/images/50th.png">
                     </a>
                 </div>
 

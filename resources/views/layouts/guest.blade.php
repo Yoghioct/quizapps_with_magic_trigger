@@ -20,8 +20,8 @@
             <div>
                 <a href="/">
                     {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                    <img style="width: 300px; margin-bottom: 30px"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Otsuka_Holdings_logo.svg/500px-Otsuka_Holdings_logo.svg.png">
+                    <img style="width: 200px; margin-bottom: 30px"
+                            src="https://sfe.otsuka.co.id/assets/images/50th.png">
                 </a>
 
             </div>
