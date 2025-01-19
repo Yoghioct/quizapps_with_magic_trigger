@@ -6,9 +6,10 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
-                        <img style="width: 50px"
-                                src="https://sfe.otsuka.co.id/assets/images/50th.png">
+                        {{-- Light mode logo --}}
+                        <img class="block dark:hidden" style="width: 50px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                        {{-- Dark mode logo --}}
+                        <img class="hidden dark:block" style="width: 50px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
                     </a>
                 </div>
 
@@ -26,6 +27,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('data-score')" :active="request()->routeIs('data-score')">
                         {{ __('Data Score') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('participant')" :active="request()->routeIs('participant')">
+                        {{ __('Data Participant') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">

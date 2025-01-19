@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Crypt;
 
 class ParticipantController extends Controller
 {
+    public function index(){
+        $participants = Participant::with(['team', 'dinnerTable'])->get();
+
+        return view('participant', compact('participants'));
+    }
+
     public function amazingRace(){
         return view('amazing-race');
 

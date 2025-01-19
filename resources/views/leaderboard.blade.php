@@ -24,8 +24,10 @@
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
                     <div class="flex lg:justify-center">
-                        <img style="width: 100px"
-                            src="https://sfe.otsuka.co.id/assets/images/50th.png">
+                        {{-- Light mode logo --}}
+                        <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                        {{-- Dark mode logo --}}
+                        <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
                     </div>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">
@@ -60,8 +62,8 @@
                             <!-- Modal Container -->
                             <div x-show="modalVisible" class="fixed inset-0 flex items-center justify-center"">
                                 <div class="background-modal"></div>
-                                <div class="bg-white dark:bg-black p-6 rounded-lg shadow-lg z-10" style="max-width: 620px; width: 87% !important;  z-index: 1000;">
-                                    <h2 class="text-xl font-semibold text-black dark:text-white" x-text="modalTeam.name"></h2>
+                                <div class="bg-white dark:bg-white p-6 rounded-lg shadow-lg z-10" style="max-width: 620px; width: 87% !important;  z-index: 1000;">
+                                    <h2 class="text-xl font-semibold text-black dark:text-black" x-text="modalTeam.name"></h2>
                                     <div class="flex justify-between items-center border-b pb-4 mb-4 mt-4"></div>
 
 

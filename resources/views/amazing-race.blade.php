@@ -24,8 +24,10 @@
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
                     <div class="flex lg:justify-center">
-                        <img style="width: 100px"
-                            src="https://sfe.otsuka.co.id/assets/images/50th.png">
+                        {{-- Light mode logo --}}
+                        <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                        {{-- Dark mode logo --}}
+                        <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
                     </div>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">

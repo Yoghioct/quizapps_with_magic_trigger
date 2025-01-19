@@ -67,12 +67,14 @@
                                             <h1 class="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
                                                 Your table is:
                                             </h1>
-                                            <h2 class="text-2xl text-blue-600 mt-4">
-                                                ZONE {{ $participant['dinner_table']['zona_table'] }}
-                                            </h2>
-                                            <h2 class="text-4xl font-bold text-blue-600 mb-12">
+                                            <h2 class="text-4xl font-bold text-blue-600 mt-4">
                                                 TABLE {{ $participant['dinner_table']['nomor_table'] }}
                                             </h2>
+                                            <div class="zone-green">
+                                                <h2>
+                                                    ZONE {{ $participant['dinner_table']['zona_table'] }}
+                                                </h2>
+                                            </div>
                                         </div>
 
                                         <!-- Agenda List -->
@@ -95,7 +97,6 @@
                                                 <li><strong>8:25 PM - 9:40 PM:</strong>
                                                     <ul class="list-circle pl-4 ml-4 space-y-1">
                                                         <li>● Awarding</li>
-                                                        <li>● Testimony by Ketua SPSI Mr. Eben Pambudi</li>
                                                         <li>● Best Costume</li>
                                                         <li>● Otsuka Indonesia Factory Performance</li>
                                                         <li>● Otsuka Indonesia HO Performance</li>
@@ -150,6 +151,20 @@
     </script>
 
     <style>
+        .zone-green {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #047857;
+            /* Green text */
+            background-color: #d1fae5;
+            /* Light green background */
+            border-radius: 5px;
+            /* Rounded badge */
+            margin-top: 10px;
+            margin-bottom: 3em;
+        }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */

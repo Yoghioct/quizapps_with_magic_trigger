@@ -34,6 +34,8 @@ Route::get('/score', [ScoreController::class, 'index'])->middleware(['auth', 've
 Route::get('/data-score', [ScoreController::class, 'data'])->middleware(['auth', 'verified'])->name('data-score');
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
 Route::get('/leaderboard/{id}', [LeaderboardController::class, 'detail'])->name('detail-leaderboard');
+Route::get('/participant', [ParticipantController::class, 'index'])->middleware(['auth', 'verified'])->name('participant');
+
 
 // Route::get('/data-score', [ScoreController::class, 'data'])
 //     ->middleware(['auth', 'verified'])
@@ -71,6 +73,8 @@ Route::get('/amazing-race/leaderboard', [LeaderboardController::class, 'index'])
 Route::get('/gala-dinner', [ParticipantController::class, 'galaDinner'])->name('galadinner');
 Route::post('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRegister'])->name('galadinner.register');
 Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerDetail'])->name('galadinner.detail');
+
+
 
 require __DIR__.'/auth.php';
 

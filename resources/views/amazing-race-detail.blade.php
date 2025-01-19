@@ -43,15 +43,18 @@
                                         @endif
 
                                         <div class="video-container">
-                                            <video width="100%" height="100%" autoplay loop muted playsinline   >
-                                                <source src="{{ asset('assets/video/amazingrace.mp4')  }}" type="video/mp4">
+                                            <video width="100%" height="100%" autoplay loop muted playsinline>
+                                                <source src="{{ asset('assets/video/amazingrace.mp4') }}"
+                                                    type="video/mp4">
                                             </video>
                                         </div>
 
                                         <!-- Opening Sentence -->
                                         <div class="mb-6 mt-6">
                                             <h1 class="text-2xl font-bold mb-4">Hi! {{ $participant['full_name'] }}</h1>
-                                            <p><span class="font-semibold">Welcome to the Amazing Race PT Otsuka Indonesia!</span> You and your team are now registered. Get ready to face 6 exciting challenges!</p>
+                                            <p><span class="font-semibold">Welcome to the Amazing Race PT Otsuka
+                                                    Indonesia!</span> You and your team are now registered. Get ready to
+                                                face 6 exciting challenges!</p>
                                         </div>
 
                                         <!-- No Team & No Table -->
@@ -62,7 +65,33 @@
                                             <h2 class="text-4xl font-bold text-blue-600 mt-4">
                                                 {{ $participant['team']['name'] }}
                                             </h2>
+                                            @if ($participant['team']['zona_team'] == 'GREEN')
+                                                <div class="zone-green">
+                                                    <h2>
+                                                        ZONE {{ $participant['team']['zona_team'] }}
+                                                    </h2>
+                                                </div>
+                                            @elseif ($participant['team']['zona_team'] == 'YELLOW')
+                                                <div class="zone-yellow">
+                                                    <h2>
+                                                        ZONE {{ $participant['team']['zona_team'] }}
+                                                    </h2>
+                                                </div>
+                                            @elseif ($participant['team']['zona_team'] == 'RED')
+                                                <div class="zone-red">
+                                                    <h2>
+                                                        ZONE {{ $participant['team']['zona_team'] }}
+                                                    </h2>
+                                                </div>
+                                            @else
+                                                <div class="zone-default">
+                                                    <h2>
+                                                        ZONE {{ $participant['team']['zona_team'] }}
+                                                    </h2>
+                                                </div>
+                                            @endif
                                             <p class="mt-4">Good luck, and let the best team win!</p>
+                                            <div style="margin: 50px 0"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,9 +121,70 @@
     </script>
 
     <style>
+        .zone-green {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #047857;
+            /* Green text */
+            background-color: #d1fae5;
+            /* Light green background */
+            border-radius: 5px;
+            /* Rounded badge */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .zone-yellow {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #854d0e;
+            /* Yellow text */
+            background-color: #fef3c7;
+            /* Light yellow background */
+            border-radius: 9999px;
+            /* Rounded badge */
+            margin-top: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .zone-red {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #b91c1c;
+            /* Red text */
+            background-color: #fee2e2;
+            /* Light red background */
+            border-radius: 9999px;
+            /* Rounded badge */
+            margin-top: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .zone-default {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+            /* Gray text */
+            background-color: #f3f4f6;
+            /* Light gray background */
+            border-radius: 9999px;
+            /* Rounded badge */
+            margin-top: 1rem;
+            margin-bottom: 10px;
+        }
+
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
+            /* 16:9 */
             height: 0;
         }
 

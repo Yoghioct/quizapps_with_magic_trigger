@@ -20,8 +20,10 @@
             <div>
                 <a href="/">
                     {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                    <img style="width: 200px; margin-bottom: 30px"
-                            src="https://sfe.otsuka.co.id/assets/images/50th.png">
+                    {{-- Light mode logo --}}
+                    <img class="block dark:hidden" style="width: 200px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                    {{-- Dark mode logo --}}
+                    <img class="hidden dark:block" style="width: 200px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
                 </a>
 
             </div>
