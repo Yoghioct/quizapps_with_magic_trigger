@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gala Dinner Otsuka</title>
+    <title>Open Museum Otsuka</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -43,15 +43,13 @@
                                         @endif
 
                                         <div class="video-container">
-                                            <video width="100%" height="100%" autoplay loop muted playsinline   >
-                                                <source src="{{ asset('assets/video/galadinner.mp4')  }}" type="video/mp4">
-                                            </video>
+                                            <img src="{{ asset('assets/image/open-museum.jpg')  }}" alt="open-museum">
                                         </div>
 
                                          <!-- Opening Sentence -->
                                          <div class="mb-6 mt-6">
                                             <h1 class="text-2xl font-bold mb-4">Hi! {{ $participant['full_name'] }}</h1>
-                                            <p class="text-lg"><span class="font-semibold">Welcome to the Gala Dinner PT Otsuka Indonesia!</span> Enjoy the night and create unforgettable memories.</p>
+                                            <p class="text-lg"><span class="font-semibold">Welcome to the Open Museum PT Otsuka Indonesia!</span> We are delighted to have you here to explore the rich history, innovation, and milestones that have shaped our journey.</p>
                                         </div>
 
                                         <!-- Participant Details -->
@@ -61,66 +59,30 @@
                                             <p><strong>Team:</strong> {{ $participant['team']['name'] }}</p>
                                             <p><strong>Table:</strong> {{ $participant['dinner_table']['nama_table'] }} (No. {{ $participant['dinner_table']['nomor_table'] }})</p>
                                         </div> --}}
-
                                         <!-- No Team & No Table -->
                                         <div class="mt-8 text-center">
                                             <h1 class="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
-                                                Your table is:
+                                                Your schedule is:
                                             </h1>
                                             <h2 class="font-bold text-blue-600 mt-4" style="font-size: 3rem">
-                                                TABLE {{ $participant['dinner_table']['nomor_table'] }}
+                                                {{ $participant['open_museum']['schedule'] }}
                                             </h2>
                                             <div class="zone-green">
                                                 <h2>
-                                                    ZONE {{ $participant['dinner_table']['zona_table'] }}
+                                                    {{ $participant['open_museum']['name'] }}
                                                 </h2>
                                             </div>
                                         </div>
 
-                                        <!-- Agenda List -->
-                                        <div class="mt-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-6">
-                                            <h2 class="text-2xl font-bold mb-6 text-center">Agenda</h2>
-                                            <ul class="list-disc pl-6 space-y-6">
-                                                <li><strong>6:30 PM - 7:00 PM:</strong>
-                                                    <ul class="list-circle pl-4 ml-4 space-y-1">
-                                                        <li>● Welcome to Gala Dinner 50th Anniversary PT Otsuka Indonesia</li>
-                                                    </ul>
-                                                </li>
-                                                <li><strong>7:00 PM - 8:20 PM:</strong>
-                                                    <ul class="list-circle pl-4 ml-4 space-y-1">
-                                                        <li>● Awa Odori - HO Dance</li>
-                                                        <li>● Speech by President Director - Mr. Tetsuya Yamamoto</li>
-                                                        <li>● Toast with all participants, BOD, and VIP</li>
-                                                        <li>● Dinner</li>
-                                                    </ul>
-                                                </li>
-                                                <li><strong>8:25 PM - 9:40 PM:</strong>
-                                                    <ul class="list-circle pl-4 ml-4 space-y-1">
-                                                        <li>● Awarding</li>
-                                                        <li>● Best Costume</li>
-                                                        <li>● Otsuka Indonesia Factory Performance</li>
-                                                        <li>● Otsuka Indonesia HO Performance</li>
-                                                    </ul>
-                                                </li>
-                                                <li><strong>9:40 PM - 11:15 PM:</strong>
-                                                    <ul class="list-circle pl-4 ml-4 space-y-1">
-                                                        <li>● Otsuka Indonesia Special Performance</li>
-                                                        <li>● Guest Star Performance</li>
-                                                    </ul>
-                                                </li>
-                                                <li><strong>11:15 PM:</strong>
-                                                    <ul class="list-circle pl-4 ml-4 space-y-1">
-                                                        <li>● Closing - All participants, committee, BOD, and President Director go to the stage together</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-
+                                        {{-- <p class="mt-6 text-lg">
+                                            Take your time to wander through our gallery, where every corner tells a story. From groundbreaking achievements to moments of inspiration,
+                                            this exhibit is a tribute to the dedication and passion that brought us here today.
+                                        </p> --}}
 
                                         <!-- Closing Sentence -->
                                         <div class="mt-6">
                                             <p class="text-lg font-medium">
-                                                Thank you for joining us tonight! Let’s celebrate 50 years of excellence together!
+                                                Thank you for joining us in commemorating this milestone.
                                             </p>
                                         </div>
                                     </div>

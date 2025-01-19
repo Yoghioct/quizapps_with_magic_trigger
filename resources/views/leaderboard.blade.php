@@ -23,12 +23,14 @@
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
-                    <div class="flex lg:justify-center">
-                        {{-- Light mode logo --}}
-                        <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
-                        {{-- Dark mode logo --}}
-                        <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
-                    </div>
+                    <a href="/">
+                        <div class="flex lg:justify-center">
+                            {{-- Light mode logo --}}
+                            <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                            {{-- Dark mode logo --}}
+                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                        </div>
+                    </a>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">
                             @auth

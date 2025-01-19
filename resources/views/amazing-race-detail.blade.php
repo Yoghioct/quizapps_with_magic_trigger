@@ -52,7 +52,7 @@
                                         <!-- Opening Sentence -->
                                         <div class="mb-6 mt-6">
                                             <h1 class="text-2xl font-bold mb-4">Hi! {{ $participant['full_name'] }}</h1>
-                                            <p><span class="font-semibold">Welcome to the Amazing Race PT Otsuka
+                                            <p class="text-lg"><span class="font-semibold">Welcome to the Amazing Race PT Otsuka
                                                     Indonesia!</span> You and your team are now registered. Get ready to
                                                 face 6 exciting challenges!</p>
                                         </div>
@@ -62,7 +62,7 @@
                                             <h1 class="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
                                                 Your team is:
                                             </h1>
-                                            <h2 class="text-4xl font-bold text-blue-600 mt-4">
+                                            <h2 class="font-bold text-blue-600 mt-4" style="font-size: 3rem">
                                                 {{ $participant['team']['name'] }}
                                             </h2>
                                             @if ($participant['team']['zona_team'] == 'GREEN')

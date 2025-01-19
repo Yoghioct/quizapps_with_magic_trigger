@@ -74,6 +74,9 @@ Route::get('/gala-dinner', [ParticipantController::class, 'galaDinner'])->name('
 Route::post('/gala-dinner/register', [ParticipantController::class, 'galaDinnerRegister'])->name('galadinner.register');
 Route::get('/gala-dinner/detail/{id}', [ParticipantController::class, 'galaDinnerDetail'])->name('galadinner.detail');
 
+Route::get('/open-museum', [ParticipantController::class, 'openMuseum'])->name('openmuseum');
+Route::post('/open-museum/register', [ParticipantController::class, 'openMuseumRegister'])->name('openmuseum.register');
+Route::get('/open-museum/detail/{id}', [ParticipantController::class, 'openMuseumDetail'])->name('openmuseum.detail');
 
 
 require __DIR__.'/auth.php';

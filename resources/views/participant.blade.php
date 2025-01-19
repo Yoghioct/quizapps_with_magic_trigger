@@ -35,6 +35,8 @@
                                         Team <span x-show="sortColumn === 'team' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'team' && sortDirection === 'desc'">↓</span>
                                     </th>
+                                    {{-- <th class="py-3 px-6 text-center">Zone Team</th> --}}
+                                    {{-- <th class="py-3 px-6 text-center">Open Museum</th> --}}
                                     <th class="py-3 px-6 text-left cursor-pointer" @click="sort('nomor_table')">
                                         No. Table <span x-show="sortColumn === 'nomor_table' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'nomor_table' && sortDirection === 'desc'">↓</span>

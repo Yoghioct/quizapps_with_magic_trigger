@@ -23,12 +23,14 @@
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
-                    <div class="flex lg:justify-center">
-                        {{-- Light mode logo --}}
-                        <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
-                        {{-- Dark mode logo --}}
-                        <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
-                    </div>
+                    <a href="/">
+                        <div class="flex lg:justify-center">
+                            {{-- Light mode logo --}}
+                            <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                            {{-- Dark mode logo --}}
+                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                        </div>
+                    </a>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">
                             @auth
@@ -94,7 +96,7 @@
                             </div>
                         </a>
 
-                        <a href="/gala-dinner" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                        <a href="/open-museum" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
                                 <h5 class="text-l font-regular text-black dark:text-*">Sign Up for Open Museum</h5>

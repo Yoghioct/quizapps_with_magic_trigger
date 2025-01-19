@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gala Dinner Otsuka</title>
+        <title>Open Museum Otsuka</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,14 +23,12 @@
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
             <header class="fixed top-0 w-full z-50 bg-white dark:bg-black shadow-md">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto flex items-center justify-between py-4">
-                    <a href="/">
-                        <div class="flex lg:justify-center">
-                            {{-- Light mode logo --}}
-                            <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
-                            {{-- Dark mode logo --}}
-                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
-                        </div>
-                    </a>
+                    <div class="flex lg:justify-center">
+                        {{-- Light mode logo --}}
+                        <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                        {{-- Dark mode logo --}}
+                        <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                    </div>
                     @if (Route::has('login'))
                         <nav class="flex space-x-4">
                             @auth
@@ -56,10 +54,13 @@
             </header>
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
 
+
+
+
                     <main class="mt-6">
                         <div class="grid" style="margin-bottom: 100px">
-
                             <div class="py-12" style="margin: 15px">
+
                                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                                         <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -75,13 +76,15 @@
                                                 </div>
                                             @endif
 
+
+
                                             <!-- Form for Inputting Score -->
                                             {{-- <form action="{{ route('score.store') }}" method="POST"> --}}
-                                            <form action="{{ route('galadinner.register') }}" method="POST">
+                                            <form action="{{ route('openmuseum.register') }}" method="POST">
                                                 @csrf
                                                 <div class="mb-6">
-                                                    <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-300">Gala Dinner Otsuka</h1>
-                                                    <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk mengikuti Gala Dinner Otsuka</p>
+                                                    <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-300">Open Museum Otsuka</h1>
+                                                    <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk mengikuti Open Museum Otsuka</p>
                                                 </div>
 
                                                 <!-- NIP -->

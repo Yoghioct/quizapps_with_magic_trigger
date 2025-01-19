@@ -29,4 +29,10 @@ class Participant extends Model
     {
         return $this->belongsTo(DinnerTable::class, 'id_dinner_table', 'id');
     }
+
+    // Relationship to OpenMuseum
+    public function openMuseum()
+    {
+        return $this->belongsTo(OpenMuseum::class, 'id_open_museum', 'id');
+    }
 }
