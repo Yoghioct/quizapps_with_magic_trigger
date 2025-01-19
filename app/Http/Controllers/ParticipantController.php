@@ -80,7 +80,7 @@ class ParticipantController extends Controller
                 return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
             }
         } else {
-            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
+            return redirect()->back()->with('error', 'NIP yang kamu masukkan salah. Silakan periksa kembali.');
         }
     }
 
@@ -124,7 +124,7 @@ class ParticipantController extends Controller
                 return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
             }
         } else {
-            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
+            return redirect()->back()->with('error', 'NIP yang kamu masukkan salah. Silakan periksa kembali.');
         }
     }
 
@@ -161,7 +161,7 @@ class ParticipantController extends Controller
                 return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
             }
         } else {
-            return redirect()->back()->with('error', 'Kode yang kamu masukkan salah. Silakan periksa kembali.');
+            return redirect()->back()->with('error', 'NIP yang kamu masukkan salah. Silakan periksa kembali.');
         }
     }
 
