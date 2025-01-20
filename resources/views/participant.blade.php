@@ -35,10 +35,10 @@
                                         Team <span x-show="sortColumn === 'team' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'team' && sortDirection === 'desc'">↓</span>
                                     </th>
-                                    {{-- <th class="py-3 px-6 text-center">Zone Team</th> --}}
-                                    {{-- <th class="py-3 px-6 text-center">Open Museum</th> --}}
+                                    <th class="py-3 px-6 text-center">Zone Team</th>
+                                    <th class="py-3 px-6 text-center">Open Museum</th>
                                     <th class="py-3 px-6 text-left cursor-pointer" @click="sort('nomor_table')">
-                                        No. Table <span x-show="sortColumn === 'nomor_table' && sortDirection === 'asc'">↑</span>
+                                        Table <span x-show="sortColumn === 'nomor_table' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'nomor_table' && sortDirection === 'desc'">↓</span>
                                     </th>
                                     <th class="py-3 px-6 text-left cursor-pointer" @click="sort('zona_table')">
@@ -56,6 +56,8 @@
                                         <td class="py-3 px-6" x-text="participant.code"></td>
                                         <td class="py-3 px-6" x-text="participant.full_name"></td>
                                         <td class="py-3 px-6" x-text="participant.team?.name ?? 'Unknown'"></td>
+                                        <td class="py-3 px-6" x-text="participant.team?.zona_team ?? 'Unknown'"></td>
+                                        <td class="py-3 px-6" x-text="participant.open_museum?.schedule ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.dinner_table?.nomor_table ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.dinner_table?.zona_table ?? 'Unknown'"></td>
                                         {{-- <td class="py-3 px-6 text-center">

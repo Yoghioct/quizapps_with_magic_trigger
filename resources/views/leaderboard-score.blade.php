@@ -23,13 +23,21 @@
                                         <div class="flex justify-between items-center border-b pb-4 mb-4 mt-4"></div>
 
 
+
                                         <div class="space-y-4">
-                                            <template x-for="(score, index) in scoreDetails" :key="index">
-                                                <li class="flex justify-between" style="margin-bottom: 10px">
-                                                    <span x-text="score.game_name"></span>
-                                                    <span class="font-semibold" x-text="score.score"></span>
-                                                </li>
-                                            </template>
+                                            <div x-show="scoreDetails.length == 0" class="text-center p-4">
+                                                <span>No scores available.</span>
+                                            </div>
+
+                                            <div x-show="scoreDetails.length > 0" class="text-center p-4">
+                                                <template x-for="(score, index) in scoreDetails" :key="index">
+                                                    <li class="flex justify-between" style="margin-bottom: 10px">
+                                                        <span x-text="score.game_name"></span>
+                                                        <span class="font-semibold" x-text="score.score"></span>
+                                                    </li>
+                                                </template>
+                                            </div>
+
 
                                             <div class="flex justify-between items-center border-b pb-4 mb-4 mt-4"></div>
 
@@ -142,8 +150,10 @@
                     fetch(`/leaderboard/${team.id}`)
             .then(res => res.json())
             .then(data => {
-                // Check if data.scores is already an array
-                if (Array.isArray(data.scores)) {
+                console.log(data.scores.length);
+                if(data.scores.length == 0){
+                    this.scoreDetails = [];
+                } else if (Array.isArray(data.scores)) {
                     // Use directly if it's an array of objects with game_name and score
                     this.scoreDetails = data.scores.map((score, index) => ({
                         game_name: score.game_name, // Ensure `game_name` exists
