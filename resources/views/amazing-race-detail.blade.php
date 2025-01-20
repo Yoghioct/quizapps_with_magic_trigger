@@ -52,7 +52,7 @@
                                         <!-- Opening Sentence -->
                                         <div class="mb-6 mt-6">
                                             <h1 class="text-2xl font-bold mb-4">Hi! {{ $participant['full_name'] }}</h1>
-                                            <p class="text-lg"><span class="font-semibold">Welcome to the Amazing Race PT Otsuka
+                                            <p class="text-lg"><span class="font-semibold">Welcome to the Otsuka DNA Amazing Race PT Otsuka
                                                     Indonesia!</span> You and your team are now registered. Get ready to
                                                 face 6 exciting challenges!</p>
                                         </div>

@@ -14,6 +14,7 @@ class Participant extends Model
     protected $fillable = [
         'code',
         'full_name',
+        'phone',
         'id_team',
         'id_dinner_table',
         'id_open_museum',
