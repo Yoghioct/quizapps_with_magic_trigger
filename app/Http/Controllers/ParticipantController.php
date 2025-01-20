@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DinnerTable;
+use App\Models\Game;
+use App\Models\OpenMuseum;
 use App\Models\Participant;
+use App\Models\Team;
+use Carbon\Carbon;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 
@@ -11,7 +17,114 @@ class ParticipantController extends Controller
     public function index(){
         $participants = Participant::with(['team', 'dinnerTable', 'openMuseum'])->get();
 
-        return view('participant', compact('participants'));
+        $teams = Team::all();
+        $dinner_table = DinnerTable::all();
+        $open_museum = OpenMuseum::all();
+
+        $data = [
+            'teams' => $teams,
+            'openMuseum' => $open_museum,
+            'dinnerTable' => $dinner_table,
+            'participants' => $participants,
+        ];
+
+        return view('participant', compact('data'));
+    }
+
+    public function store_participant(){
+        $teams = Team::all();
+        $dinner_table = DinnerTable::all();
+        $open_museum = OpenMuseum::all();
+
+        $data = [
+            'teams' => $teams,
+            'openMuseum' => $open_museum,
+            'dinnerTable' => $dinner_table,
+        ];
+
+        return view('store-participant', compact('data'));
+    }
+
+    public function destroy_participant($id)
+    {
+        $score = Participant::findOrFail($id);
+        $score->delete();
+
+        return redirect()->route('participant')->with('success', 'Participant deleted successfully!');
+    }
+
+    public function edit_participant($id)
+    {
+        $participants = Participant::with(['team', 'dinnerTable', 'openMuseum'])->findOrFail($id);
+
+        $teams = Team::all();
+        $dinner_table = DinnerTable::all();
+        $open_museum = OpenMuseum::all();
+
+        $data = [
+            'teams' => $teams,
+            'openMuseum' => $open_museum,
+            'dinnerTable' => $dinner_table,
+            'participants' => $participants,
+        ];
+
+        return view('edit-participant', $data);
+    }
+
+
+    public function update_participant(Request $request, $id)
+    {
+        $request->validate([
+            'nip' => 'required',
+            'full_name' => 'required',
+            'id_team' => 'required',
+            'id_open_museum' => 'required',
+            'id_dinner_table' => 'required',
+        ]);
+
+        $participant = Participant::findOrFail($id);
+        $participant->update([
+            'code' => $request->nip,
+            'full_name' => strtoupper($request->full_name),
+            'id_team' => $request->id_team,
+            'id_open_museum' => $request->id_open_museum,
+            'id_dinner_table' => $request->id_dinner_table,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('participant')->with('success', 'Participant updated successfully!');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nip' => 'required',
+            'full_name' => 'required',
+            'id_team' => 'required',
+            'id_open_museum' => 'required',
+            'id_dinner_table' => 'required',
+        ]);
+
+
+        $existingParticipant = Participant::where('code', $request->nip)
+        ->first();
+
+        if ($existingParticipant) {
+            return redirect()->back()->with('error', 'Participant has already been input.');
+        }
+
+        Participant::create([
+            'code' => $request->nip,
+            'full_name' => strtoupper($request->full_name),
+            'id_team' => $request->id_team,
+            'id_open_museum' => $request->id_open_museum,
+            'id_dinner_table' => $request->id_dinner_table,
+            'created_at' => Carbon::now(),
+            // 'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Participant added successfully!');
     }
 
     public function amazingRace(){

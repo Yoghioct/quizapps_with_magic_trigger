@@ -16,6 +16,7 @@ class Participant extends Model
         'full_name',
         'id_team',
         'id_dinner_table',
+        'id_open_museum',
     ];
 
     // Relationship to Team

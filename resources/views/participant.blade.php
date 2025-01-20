@@ -11,6 +11,25 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100" x-data="sortableTable()">
+                    <!-- Flash Message -->
+                    @if (session('success'))
+                        <div class="mb-4 text-green-600 bg-green-100 border border-green-500 rounded-md p-4">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="mb-4 text-red-600 dark:bg-red-800 border border-red-500 rounded-md p-4" style="background-color:rgb(254 226 226)">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <a href="{{ route('participant.store_participant') }}">
+                        <div class="mb-4" style="float: right">
+                            <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800">
+                                Add Data
+                        </div>
+                    </a>
+
                     <!-- Search Bar -->
                     <div class="mb-4">
                         <input type="text" x-model="searchQuery" placeholder="Search participants..."
@@ -36,7 +55,8 @@
                                         <span x-show="sortColumn === 'team' && sortDirection === 'desc'">↓</span>
                                     </th>
                                     <th class="py-3 px-6 text-center">Zone Team</th>
-                                    <th class="py-3 px-6 text-center">Open Museum</th>
+                                    <th class="py-3 px-6 text-center">Gel. Museum</th>
+                                    <th class="py-3 px-6 text-center">Schedule</th>
                                     <th class="py-3 px-6 text-left cursor-pointer" @click="sort('nomor_table')">
                                         Table <span x-show="sortColumn === 'nomor_table' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'nomor_table' && sortDirection === 'desc'">↓</span>
@@ -45,7 +65,7 @@
                                         Zone Table <span x-show="sortColumn === 'zona_table' && sortDirection === 'asc'">↑</span>
                                         <span x-show="sortColumn === 'zona_table' && sortDirection === 'desc'">↓</span>
                                     </th>
-                                    {{-- <th class="py-3 px-6 text-center">Actions</th> --}}
+                                    <th class="py-3 px-6 text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 dark:text-gray-300 text-sm font-light">
@@ -57,10 +77,11 @@
                                         <td class="py-3 px-6" x-text="participant.full_name"></td>
                                         <td class="py-3 px-6" x-text="participant.team?.name ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.team?.zona_team ?? 'Unknown'"></td>
+                                        <td class="py-3 px-6" x-text="participant.open_museum?.name ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.open_museum?.schedule ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.dinner_table?.nomor_table ?? 'Unknown'"></td>
                                         <td class="py-3 px-6" x-text="participant.dinner_table?.zona_table ?? 'Unknown'"></td>
-                                        {{-- <td class="py-3 px-6 text-center">
+                                        <td class="py-3 px-6 text-center">
                                             <div class="flex flex-col gap-2 sm:flex-row sm:justify-center">
                                                 <!-- Edit Button -->
                                                 <a :href="`/participant/edit/${participant.id}`" class="w-full sm:w-auto">
@@ -82,7 +103,7 @@
                                                     </button>
                                                 </form>
                                             </div>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -106,7 +127,7 @@
     <script>
         function sortableTable() {
             return {
-                participants: @json($participants), // Inject participants from Laravel
+                participants: @json($data['participants']),
                 searchQuery: '',
                 sortColumn: null,
                 sortDirection: 'asc',

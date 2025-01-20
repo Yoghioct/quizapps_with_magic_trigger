@@ -35,6 +35,11 @@ Route::get('/data-score', [ScoreController::class, 'data'])->middleware(['auth',
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
 Route::get('/leaderboard/{id}', [LeaderboardController::class, 'detail'])->name('detail-leaderboard');
 Route::get('/participant', [ParticipantController::class, 'index'])->middleware(['auth', 'verified'])->name('participant');
+Route::get('/participant/store', [ParticipantController::class, 'store_participant'])->middleware(['auth', 'verified'])->name('participant.store_participant');
+Route::post('/participant', [ParticipantController::class, 'store'])->middleware(['auth', 'verified'])->name('participant.store');
+Route::delete('/participant/{id}', [ParticipantController::class, 'destroy_participant'])->middleware(['auth', 'verified'])->name('participant.destroy');
+Route::get('/participant/edit/{id}', [ParticipantController::class, 'edit_participant'])->middleware(['auth', 'verified'])->name('participant.edit');
+Route::post('/participant/update/{id}', [ParticipantController::class, 'update_participant'])->middleware(['auth', 'verified'])->name('participant.update');
 
 
 // Route::get('/data-score', [ScoreController::class, 'data'])
