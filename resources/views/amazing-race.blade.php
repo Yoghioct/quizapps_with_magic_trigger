@@ -82,7 +82,7 @@
 
                                                 <div class="mb-6">
                                                     <h1 class="text-2xl font-bold text-gray-700 dark:text-gray-300">Otsuka DNA Amazing Race</h1>
-                                                    <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk mengikuti Amazing Race Otsuka</p>
+                                                    <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk melihat kelompok Amazing Race Otsuka DNA Anda</p>
                                                 </div>
 
                                                 <!-- NIP -->
