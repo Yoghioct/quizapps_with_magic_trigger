@@ -100,10 +100,10 @@
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
         <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
 
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+            <div class="relative w-full px-6 lg:px-8">
                 <main class="mt-6">
-                    <div class="grid" style="margin-bottom: 100px">
-                        <div class="py-12" style="margin: 15px">
+                    <div class="" style="margin-bottom: 100px">
+                        <div class="py-12 px-4 sm:px-6 lg:px-8">
                             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                                     <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -119,10 +119,10 @@
                                             </div>
                                         @endif
 
-                                        <div class="mb-6 zone-green">
-                                            <h1 class="text-2xl font-bold">UNDIAN DOORPRIZE</h1>
+                                        <div class="mb-6 zone-green" style="display: flex; justify-content: center; align-items: center;">
+                                            <h1 class="text-2xl font-bold">DOORPRIZE</h1>
                                             {{-- <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk melihat table Gala Dinner Anda</p> --}}
-                                        </div>
+                                       </div>
 
                                         <div class="mt-8 text-center">
                                             <h1 class="text-5xl font-extrabold text-gray-800 dark:text-gray-200">
@@ -181,7 +181,7 @@
                                                 <!-- Modal Body (Winner Info) -->
                                                 <div class="space-y-4 mt-4">
                                                     <div class="text-center p-4">
-                                                        <span class="text-gray-600 dark:text-gray-300">The winner is:</span>
+                                                        <span class="text-gray-600 dark:text-gray-600">The winner is:</span>
                                                     </div>
 
                                                     <div class="flex justify-center items-center mb-4">
@@ -190,13 +190,13 @@
 
 
                                                     <div class="flex justify-between items-center mb-4">
-                                                        <span class="font-bold">Full Name</span>
-                                                        <span id="winnerFullName" class="text-lg text-blue-600 dark:text-blue-400">-</span>
+                                                        <span class="font-bold text-black dark:text-black">Full Name</span>
+                                                        <span id="winnerFullName" class="text-lg text-black dark:text-black">-</span>
                                                     </div>
 
                                                     <div class="flex justify-between items-center mb-4">
-                                                        <span class="font-bold">Code</span>
-                                                        <span id="winnerCode" class="text-lg text-blue-600 dark:text-blue-400">-</span>
+                                                        <span class="font-bold text-black dark:text-black">Code</span>
+                                                        <span id="winnerCode" class="text-lg text-black dark:text-black">-</span>
                                                     </div>
 
                                                     <!-- Close Button -->
