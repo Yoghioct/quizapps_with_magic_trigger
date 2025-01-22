@@ -11,6 +11,9 @@ use Carbon\Carbon;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Http;
+
+use function Pest\Laravel\json;
 
 class ParticipantController extends Controller
 {
@@ -290,4 +293,68 @@ class ParticipantController extends Controller
 
         return view('open-museum-detail', $data);
     }
+
+    public function parseData($text) {
+        // Mock-up of how you might begin to structure the parsing
+        $entries = explode("\n\n", $text); // Assuming each entry is separated by two newlines
+        $results = [];
+
+        foreach ($entries as $entry) {
+            $lines = explode("\n", $entry);
+            $data = [];
+
+            foreach ($lines as $line) {
+                if (preg_match("/\[([^\]]+)\] => (.*)/", $line, $matches)) {
+                    $key = trim($matches[1]);
+                    $value = trim($matches[2]);
+                    $data[$key] = $value;
+                }
+            }
+
+            if (!empty($data)) {
+                $results[] = $data;
+            }
+        }
+
+        return $results;
+    }
+
+    public function normalizePhoneNumber($number) {
+        // Remove any non-digits
+        $number = preg_replace('/\D+/', '', $number);
+
+        // Check if the number starts with '0' and replace with '+62'
+        if (substr($number, 0, 1) === '0') {
+            $number = '+62' . substr($number, 1);
+        } elseif (substr($number, 0, 2) !== '62') {
+            // Assume it's a local number missing the country code
+            $number = '+62' . $number;
+        } else {
+            // It's likely already in the correct format, but ensure it starts with '+'
+            $number = '+' . $number;
+        }
+
+        return $number;
+    }
+
+    public function wheel_of_name() {
+        $data = Participant::select('full_name', 'code')->get()
+            ->map(function ($participant) {
+                return [
+                    'full_name' => $participant->full_name,
+                    'code' => $participant->code
+                ];
+            });
+
+        // $data = [
+        //     'full_name' => 'John Doe',
+        //     'code' => '12345',
+        // ];
+
+        // Verify participants before passing to view
+        // dd($participants);
+
+        return view('wheel-of-name', compact('data'));
+    }
+
 }

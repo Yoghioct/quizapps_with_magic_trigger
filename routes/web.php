@@ -83,6 +83,11 @@ Route::get('/open-museum', [ParticipantController::class, 'openMuseum'])->name('
 Route::post('/open-museum/register', [ParticipantController::class, 'openMuseumRegister'])->name('openmuseum.register');
 Route::get('/open-museum/detail/{id}', [ParticipantController::class, 'openMuseumDetail'])->name('openmuseum.detail');
 
+// Route::get('/sync', [ParticipantController::class, 'sync'])->name('sync');
+// Route::get('/blast', [ParticipantController::class, 'blastParticipant'])->name('blast');
+Route::get('/wheel-of-name', [ParticipantController::class, 'wheel_of_name'])->name('wheelofname');
+
+
 
 require __DIR__.'/auth.php';
 
