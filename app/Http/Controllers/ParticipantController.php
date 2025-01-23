@@ -294,47 +294,42 @@ class ParticipantController extends Controller
         return view('open-museum-detail', $data);
     }
 
-    public function parseData($text) {
-        // Mock-up of how you might begin to structure the parsing
-        $entries = explode("\n\n", $text); // Assuming each entry is separated by two newlines
-        $results = [];
-
-        foreach ($entries as $entry) {
-            $lines = explode("\n", $entry);
-            $data = [];
-
-            foreach ($lines as $line) {
-                if (preg_match("/\[([^\]]+)\] => (.*)/", $line, $matches)) {
-                    $key = trim($matches[1]);
-                    $value = trim($matches[2]);
-                    $data[$key] = $value;
-                }
-            }
-
-            if (!empty($data)) {
-                $results[] = $data;
-            }
-        }
-
-        return $results;
+    public function factoryVisit(){
+        return view('factory-visit');
     }
 
-    public function normalizePhoneNumber($number) {
-        // Remove any non-digits
-        $number = preg_replace('/\D+/', '', $number);
+    public function factoryVisitRegister(Request $request){
+        $code = $request->code;
+        $inputFullName = strtolower($request->full_name);
 
-        // Check if the number starts with '0' and replace with '+62'
-        if (substr($number, 0, 1) === '0') {
-            $number = '+62' . substr($number, 1);
-        } elseif (substr($number, 0, 2) !== '62') {
-            // Assume it's a local number missing the country code
-            $number = '+62' . $number;
+        $participantByCode = Participant::where('code', $code)->first();
+
+        if ($participantByCode) {
+            similar_text($inputFullName, strtolower($participantByCode->full_name), $similarityPercent);
+
+            if ($similarityPercent > 80) {
+                $encodeId = Crypt::encrypt($participantByCode->id);
+                return redirect()->route('factoryvisit.detail', ['id' => $encodeId])
+                    ->with('success', 'Identification Success.');
+            } else {
+                return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
+            }
         } else {
-            // It's likely already in the correct format, but ensure it starts with '+'
-            $number = '+' . $number;
+            return redirect()->back()->with('error', 'NIP yang kamu masukkan salah. Silakan periksa kembali.');
         }
+    }
 
-        return $number;
+    public function factoryVisitDetail($id){
+        $decodeId = Crypt::decrypt($id);
+
+
+        $participant = Participant::with(['team', 'dinnerTable', 'openMuseum', 'factoryVisit'])->find($decodeId)->toArray();
+
+        $data = [
+            'participant' => $participant,
+        ];
+
+        return view('factory-visit-detail', $data);
     }
 
     public function wheel_of_name() {

@@ -37,4 +37,10 @@ class Participant extends Model
     {
         return $this->belongsTo(OpenMuseum::class, 'id_open_museum', 'id');
     }
+
+    // Relationship to FactoryVisit
+    public function factoryVisit()
+    {
+        return $this->belongsTo(FactoryVisit::class, 'id_factory_visit', 'id');
+    }
 }

@@ -81,7 +81,7 @@
                         <a href="/amazing-race" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
-                                <h5 class="text-l font-regular text-black dark:text-*">Sign Up for Amazing Race</h5>
+                                <h5 class="text-l font-regular text-black dark:text-*">View Amazing Race Team</h5>
                             </div>
 
                             <div class="flex-1"></div>
@@ -99,7 +99,7 @@
                         <a href="/open-museum" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
-                                <h5 class="text-l font-regular text-black dark:text-*">Sign Up for Open Museum</h5>
+                                <h5 class="text-l font-regular text-black dark:text-*">View Open Museum Schedule</h5>
                             </div>
 
                             <div class="flex-1"></div>
@@ -117,7 +117,25 @@
                         <a href="/gala-dinner" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
-                                <h5 class="text-l font-regular text-black dark:text-*">Sign Up for Gala Dinner</h5>
+                                <h5 class="text-l font-regular text-black dark:text-*">View Gala Dinner Table</h5>
+                            </div>
+
+                            <div class="flex-1"></div>
+
+                            <!-- SVG Section -->
+                            <div>
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="/factory-visit" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                            <div>
+                                <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
+                                <h5 class="text-l font-regular text-black dark:text-*">View Factory Visit Schedule</h5>
                             </div>
 
                             <div class="flex-1"></div>

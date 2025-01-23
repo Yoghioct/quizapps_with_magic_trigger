@@ -93,6 +93,25 @@
         #addParticipantForm button {
             flex-grow: 1;
         }
+
+        @media (max-width: 640px) {
+            .zone-green {
+                display: flex;
+                justify-content: center;
+                padding: 0.25rem 0.75rem;
+                font-size: 1rem;
+                font-weight: 600;
+                /* color: #047857 !important; */
+                color: #047857 !important;
+                /* Green text */
+                background-color: #d1fae5;
+                /* Light green background */
+                border-radius: 5px;
+                /* Rounded badge */
+                margin-top: 10px;
+                /* margin-bottom: 3em; */
+            }
+        }
     </style>
 </head>
 
@@ -119,7 +138,7 @@
                                             </div>
                                         @endif
 
-                                        <div class="mb-6 zone-green" style="display: flex; justify-content: center; align-items: center;">
+                                        <div class="mb-6 zone-green">
                                             <h1 class="text-2xl font-bold">DOORPRIZE</h1>
                                             {{-- <p class="text-sm text-gray-600 dark:text-gray-200">Silahkan isi data diri Anda untuk melihat table Gala Dinner Anda</p> --}}
                                        </div>
@@ -179,7 +198,7 @@
                                                 <h2 class="text-xl font-semibold text-black dark:text-white" id="modalWinnerName" style="display: none"></h2>
 
                                                 <!-- Modal Body (Winner Info) -->
-                                                <div class="space-y-4 mt-4">
+                                                <div class="space-y-4">
                                                     <div class="text-center p-4">
                                                         <span class="text-gray-600 dark:text-gray-600">The winner is:</span>
                                                     </div>
@@ -223,7 +242,7 @@
 
     <script>
         var participants = @json($data);
-        console.log(participants);
+        // console.log(participants[718]);
 
         // Render participants in table
         function renderParticipants() {
@@ -262,6 +281,9 @@
             var participants = document.querySelectorAll('table tbody tr td:nth-child(3)'); // Get all participant names
             var codes = document.querySelectorAll('table tbody tr td:nth-child(2)'); // Get all participant codes
             var participantsArray = Array.from(participants);
+
+            // console.log(participantsArray.length);
+
             var codesArray = Array.from(codes);
 
             let i = 0;
@@ -335,7 +357,7 @@
 
         // Function to close the modal
         function closeModal() {
-            console.log('Closing modal...');
+            // console.log('Closing modal...');
             let modal = document.getElementById('winnerModal');
 
             // Remove the 'hidden' class to hide the modal (making it invisible)
