@@ -187,7 +187,7 @@
                             });
                             this.loading = false;
                         });
-                }, 30000);
+                }, 3000000);
             },
             getMovement(id, newIndex) {
                 const previousIndex = this.previousState[id];
