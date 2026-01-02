@@ -26,9 +26,9 @@
                     <a href="/">
                         <div class="flex lg:justify-center">
                             {{-- Light mode logo --}}
-                            <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                            <img class="block dark:hidden" style="width: 150px" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Light Mode">
                             {{-- Dark mode logo --}}
-                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Dark Mode">
                         </div>
                     </a>
                     @if (Route::has('login'))
@@ -122,9 +122,7 @@
 
                 </div>
             </div>
-            <footer class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
-                <a href="https://instagram.com/yoghioctopus" target="_blank">by @yoghioctopus</a>
-            </footer>
+            
         </div>
 
         <script>

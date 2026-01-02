@@ -11,5 +11,5 @@ class DinnerTable extends Model
 
     protected $table = 'dinner_tables';
 
-    protected $fillable = ['nama_table', 'nomor_table'];
+    protected $fillable = ['nama_table', 'nomor_table', 'zona_table'];
 }

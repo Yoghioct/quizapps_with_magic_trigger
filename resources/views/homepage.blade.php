@@ -26,9 +26,9 @@
                     <a href="/">
                         <div class="flex lg:justify-center">
                             {{-- Light mode logo --}}
-                            <img class="block dark:hidden" style="width: 100px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                            <img class="block dark:hidden" style="width: 150px" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Light Mode">
                             {{-- Dark mode logo --}}
-                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                            <img class="hidden dark:block" style="width: 100px; -webkit-filter: invert(100%);" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Dark Mode">
                         </div>
                     </a>
                     @if (Route::has('login'))
@@ -57,10 +57,15 @@
 
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl mx-auto" style="margin-top: 100px;">
 
+                <!-- Welcome Banner -->
+                <div class="w-full mb-8">
+                    <img src="{{ asset('assets/image/welcome banner.png') }}" alt="Welcome Banner" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+
                 <main class="mt-6">
                     <div class="grid" style="margin-bottom: 100px">
 
-                        <a href="/amazing-race/leaderboard" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                        <!-- <a href="/amazing-race/leaderboard" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
                                 <h5 class="text-l font-regular text-black dark:text-*">Leaderboard Amazing Race</h5>
@@ -68,7 +73,6 @@
 
                             <div class="flex-1"></div>
 
-                            <!-- SVG Section -->
                             <div>
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
@@ -76,9 +80,9 @@
                                         d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                                 </svg>
                             </div>
-                        </a>
+                        </a> -->
 
-                        <a href="/factory-visit" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                        <!-- <a href="/factory-visit" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
                                 <h5 class="text-l font-regular text-black dark:text-*">View Factory Visit Schedule</h5>
@@ -86,7 +90,6 @@
 
                             <div class="flex-1"></div>
 
-                            <!-- SVG Section -->
                             <div>
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
@@ -94,9 +97,9 @@
                                         d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                                 </svg>
                             </div>
-                        </a>
+                        </a> -->
 
-                        <a href="/amazing-race" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                        <!-- <a href="/amazing-race" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
                                 <h5 class="text-l font-regular text-black dark:text-*">View Amazing Race Team</h5>
@@ -104,7 +107,6 @@
 
                             <div class="flex-1"></div>
 
-                            <!-- SVG Section -->
                             <div>
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
@@ -112,9 +114,9 @@
                                         d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                                 </svg>
                             </div>
-                        </a>
+                        </a> -->
 
-                        <a href="/open-museum" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
+                        <!-- <a href="/open-museum" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
                                 <h2 class="text-xl font-semibold text-black dark:text-*" x-text="team.name"></h2>
                                 <h5 class="text-l font-regular text-black dark:text-*">View Open Museum Schedule</h5>
@@ -122,7 +124,6 @@
 
                             <div class="flex-1"></div>
 
-                            <!-- SVG Section -->
                             <div>
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
@@ -130,7 +131,7 @@
                                         d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                                 </svg>
                             </div>
-                        </a>
+                        </a> -->
 
                         <a href="/gala-dinner" target="_blank" class="item-card col-span-12 flex items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-md ring-1 ring-white/10 transition-all duration-500 ease-in-out" style="margin-top: 15px">
                             <div>
@@ -140,7 +141,6 @@
 
                             <div class="flex-1"></div>
 
-                            <!-- SVG Section -->
                             <div>
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#1F6FB8">
@@ -149,8 +149,6 @@
                                 </svg>
                             </div>
                         </a>
-
-
 
                     </div>
                     {{-- <div id="leaderboard-card"></div> --}}
@@ -162,10 +160,7 @@
 
             </div>
         </div>
-        <footer
-            class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
-            <a href="https://instagram.com/yoghioctopus" target="_blank">by @yoghioctopus</a>
-        </footer>
+        
     </div>
 
     <style>

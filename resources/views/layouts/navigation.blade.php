@@ -7,9 +7,9 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         {{-- Light mode logo --}}
-                        <img class="block dark:hidden" style="width: 50px" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Light Mode">
+                        <img class="block dark:hidden" style="width: 50px" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Light Mode">
                         {{-- Dark mode logo --}}
-                        <img class="hidden dark:block" style="width: 50px; -webkit-filter: invert(100%);" src="https://sfe.otsuka.co.id/assets/images/50th.png" alt="Logo Dark Mode">
+                        <img class="hidden dark:block" style="width: 50px; -webkit-filter: invert(100%);" src="{{ asset('assets/image/EXECUTION.png') }}" alt="Logo Dark Mode">
                     </a>
                 </div>
 

@@ -103,10 +103,7 @@
 
             </div>
         </div>
-        <footer
-            class="py-4 text-blue-500 text-center text-sm text-black dark:text-white/70 shadow-md fixed bottom-0 w-full bg-white dark:bg-gray-900">
-            <a href="https://instagram.com/yoghioctopus" target="_blank">by @yoghioctopus</a>
-        </footer>
+        
     </div>
 
     <script>

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('full_name', 255); // VARCHAR(255)
             $table->unsignedBigInteger('id_team'); // INT for id_team
             $table->unsignedBigInteger('id_dinner_table'); // INT for id_dinner_table
+            $table->unsignedBigInteger('id_open_museum')->nullable(); // INT for id_open_museum
+            $table->unsignedBigInteger('id_factory_visit')->nullable(); // INT for id_factory_visit
             $table->timestamps(); // Adds created_at and updated_at columns
         });
     }

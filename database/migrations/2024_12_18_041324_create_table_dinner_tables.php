@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('dinner_tables', function (Blueprint $table) {
             $table->id(); // Primary key, auto-increment
-            $table->string('nama_table', 255); // VARCHAR(255) for table name
+            $table->string('nama_table', 255)->default(''); // VARCHAR(255) for table name
             $table->integer('nomor_table'); // INT for table number
+            $table->string('zona_table', 50)->default('A'); // VARCHAR(50) for zone
             $table->timestamps(); // Adds created_at and updated_at columns
         });
     }
