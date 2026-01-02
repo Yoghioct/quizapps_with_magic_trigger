@@ -134,7 +134,7 @@
                                 });
                                 this.loading = false;
                             });
-                    }, 3000);
+                    }, 3000000);
                 },
                 getMovement(id, newIndex) {
                     const previousIndex = this.previousState[id];

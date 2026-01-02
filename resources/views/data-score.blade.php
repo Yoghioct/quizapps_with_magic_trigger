@@ -65,7 +65,7 @@
                                         <td class="py-3 px-6 text-center">
                                             <div class="flex flex-col gap-2 sm:flex-row sm:justify-center">
                                                 <!-- Edit Button -->
-                                                <a :href="`/data-score/edit/${score.id}`" class="w-full sm:w-auto">
+                                                <a :href="`/data-score/edit/${score.id}`" target="_blank" class="w-full sm:w-auto">
                                                     <button
                                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
                                                         Edit
@@ -112,7 +112,7 @@
                 sortColumn: null,
                 sortDirection: 'asc',
                 currentPage: 1,
-                pageSize: 10, // Number of rows per page
+                pageSize: 100, // Number of rows per page
                 sort(column) {
                     if (this.sortColumn === column) {
                         this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
