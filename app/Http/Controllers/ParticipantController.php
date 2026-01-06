@@ -225,28 +225,13 @@ class ParticipantController extends Controller
     public function galaDinnerRegister(Request $request){
 
         $code = $request->code;
-        $inputFullName = $request->full_name ? strtolower($request->full_name) : null;
 
         $participantByCode = Participant::where('code', $code)->first();
 
         if ($participantByCode) {
-            // If no name provided, allow access with NIP only
-            if (empty($inputFullName)) {
-                $encodeId = Crypt::encrypt($participantByCode->id);
-                return redirect()->route('galadinner.detail', ['id' => $encodeId])
-                    ->with('success', 'Identification Success.');
-            }
-
-            // If name is provided, check similarity
-            similar_text($inputFullName, strtolower($participantByCode->full_name), $similarityPercent);
-
-            if ($similarityPercent > 80) {
-                $encodeId = Crypt::encrypt($participantByCode->id);
-                return redirect()->route('galadinner.detail', ['id' => $encodeId])
-                    ->with('success', 'Identification Success.');
-            } else {
-                return redirect()->back()->with('error', 'Nama kamu tidak ditemukan. Mohon pastikan nama yang kamu masukkan sesuai dengan Pro Int atau kartu identitasmu.');
-            }
+            $encodeId = Crypt::encrypt($participantByCode->id);
+            return redirect()->route('galadinner.detail', ['id' => $encodeId])
+                ->with('success', 'Identification Success.');
         } else {
             return redirect()->back()->with('error', 'NIP yang kamu masukkan salah. Silakan periksa kembali.');
         }
