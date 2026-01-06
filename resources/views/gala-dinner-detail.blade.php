@@ -115,7 +115,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="py-2 px-2">19:00 - 21:00</td>
-                                                                    <td class="py-2 px-2">Welcome Dinner - pool side</td>
+                                                                    <td class="py-2 px-2">Welcome Dinner - pool side | (19.00-21.00 Welcome Dinner - Pool Side (Dress Code : kemeja formal - Blue Jeans))</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
